@@ -3,11 +3,20 @@
 </script>
 
 <template>
-  <div>
-    <p>header</p>
+  <header>
+    <nav>
+      <ul>
+        <li><NuxtLink to="/">Home</NuxtLink></li>
+        <li><NuxtLink to="/about">About</NuxtLink></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
     <slot />
-    <p>footer</p>
   </div>
+
+  <footer>footer</footer>
 </template>
 
 <style scoped>
