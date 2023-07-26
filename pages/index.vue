@@ -1,13 +1,11 @@
 <script setup lang="ts">
+const {data} = await useFetch('/api/page')
 
 </script>
 
 <template>
-  <div>
-    <h1>Welcome to the homepage</h1>
-    <AppAlert>
-      This is an auto-imported component
-    </AppAlert>
+  <div class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
+    <Toolbar :filters="data.filters"/>
   </div>
 </template>
 
