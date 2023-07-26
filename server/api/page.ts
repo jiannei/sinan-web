@@ -1,5 +1,7 @@
-export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
+import useApi from "~/composables/useApi";
 
-  return await $fetch('/page', {baseURL: config.public.apiBase})
+export default defineEventHandler(async (event) => {
+  const api = useApi()
+
+  return await api('/page')
 })
