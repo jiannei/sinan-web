@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev && yarn mock",
+    "dev": "nuxt dev",
     "mock": "json-server --watch --port 3030 server/db.json",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -11,7 +11,10 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.0",
-    "nuxt": "^3.6.5"
+    "@types/node": "^20.4.5",
+    "autoprefixer": "^10.4.14",
+    "nuxt": "^3.6.5",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3"
   }
 }

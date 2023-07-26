@@ -3,20 +3,22 @@
 </script>
 
 <template>
-  <header>
-    <nav>
-      <ul>
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/about">About</NuxtLink></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="bg-gray-100 min-h-screen">
+    <header>
+      <nav>
+        <ul class="flex items-center space-x-1">
+          <li><NuxtLink to="/">Home</NuxtLink></li>
+          <li><NuxtLink to="/about">About</NuxtLink></li>
+        </ul>
+      </nav>
+    </header>
 
-  <div class="content">
-    <slot />
+    <main>
+      <slot />
+    </main>
+
+    <footer>footer</footer>
   </div>
-
-  <footer>footer</footer>
 </template>
 
 <style scoped>
