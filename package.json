@@ -4,7 +4,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev && yarn mock",
-    "mock": "json-server --watch --port 3003 db.json",
+    "mock": "json-server --watch --port 3030 server/db.json",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
