@@ -1,6 +1,10 @@
 // https://github.com/nuxt/nuxt/discussions/15930
 export default function () {
-  const config = useRuntimeConfig()
+  let {public: {apiBase}} = useRuntimeConfig()
 
-  return $fetch.create({baseURL: config.public.apiBase})
+  apiBase = apiBase.endsWith('/') ? apiBase.slice(0, -1) : apiBase
+
+  return (url: string, opts?: object) => {
+    return useAsyncData(url, () => $fetch(`${apiBase}${url}`, opts))
+  }
 }

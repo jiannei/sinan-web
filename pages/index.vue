@@ -1,12 +1,82 @@
 <script setup lang="ts">
-const {data} = await useFetch('/api/page')
+const api = useApi()
+
+const {pending, data: filters} = await api('/page/config')
+
+const posts = ref([
+  {
+    title: "post标题",
+    properties: {
+      source: "coder",
+      author: "jiannei",
+      count: {
+        comment: 0,
+      },
+    },
+    topic: "blog",
+    published_at: "2023-06-26 12:35:00"
+  },
+  {
+    title: "post标题",
+    properties: {
+      source: "coder",
+      author: "jiannei",
+      count: {
+        comment: 0,
+      },
+    },
+    topic: "blog",
+    published_at: "2023-06-26 12:35:00"
+  },
+])
 
 </script>
 
 <template>
-  <div class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
-    <Toolbar :filters="data.filters"/>
-  </div>
+  <!--工具栏-->
+  <section class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
+    <Toolbar :filters="filters.data"/>
+  </section>
+
+  <!--内容区-->
+  <section class="divide-y divide-base-200 shadow-sm">
+    <div v-for="(post,key) in posts" :key="key" class="px-4 py-3 bg-base-100">
+      <div class="w-full flex items-center justify-between">
+        <div class="object-cover w-12 h-12 rounded-full ring-1 ring-offset-2 ring-base-200"/>
+        <div class="flex-1 max-w-2xl flex items-center justify-between">
+          <div class="space-y-1.5">
+            <span class="leading-5">{{ post.title }}</span>
+            <ul class="flex items-center space-x-1 text-xs text-base-content/50 h-6">
+              <!-- TODO 首页是否显示数据源-->
+              <li class="cursor-pointer hover:underline group">
+                <span class="font-medium group-hover:text-base-content/75">{{ post.properties.source }}</span>
+              </li>
+              <li class="flex items-center">
+                <span class="inline-block w-0.5 h-0.5 rounded-full bg-base-content/50"></span>
+              </li>
+              <li class="cursor-pointer hover:underline group">
+                <span class="font-medium group-hover:text-base-content/75">{{ post.properties.author }}</span>
+              </li>
+              <li class="flex items-center">
+                <span class="inline-block w-0.5 h-0.5 rounded-full bg-base-content/50"></span>
+              </li>
+              <li class="px-1">
+                <time>{{ useDayjs(post.published_at).fromNow() }}</time>
+              </li>
+              <li v-if="post.topic">
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-base-200 px-1 py-0.5 rounded-md" v-show="post.properties.count.comment">
+            <!--TODO feed score-->
+            <span class="text-xs text-base-content/50 font-medium">{{ post.properties.count.comment }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </template>
 
 <style scoped>
