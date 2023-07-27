@@ -9,7 +9,7 @@ const data = reactive({})
 </script>
 
 <template>
-  <div class="relative h-screen bg-base-200 text-base-content/75 font-normal">
+  <div class="relative h-screen bg-base-200 text-base-content/75 font-normal overflow-y-auto">
     <header class="bg-base-100 shadow-sm">
       <nav class="flex items-center justify-between max-w-6xl px-8 py-2 mx-auto">
         <ul class="flex items-center space-x-1">

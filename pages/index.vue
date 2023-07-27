@@ -1,34 +1,9 @@
 <script setup lang="ts">
 const api = useApi()
 
-const {pending, data: filters} = await api('/page/config')
+const {data: filters} = await api('/page/config')
 
-const posts = ref([
-  {
-    title: "post标题",
-    properties: {
-      source: "coder",
-      author: "jiannei",
-      count: {
-        comment: 0,
-      },
-    },
-    topic: "blog",
-    published_at: "2023-06-26 12:35:00"
-  },
-  {
-    title: "post标题",
-    properties: {
-      source: "coder",
-      author: "jiannei",
-      count: {
-        comment: 0,
-      },
-    },
-    topic: "blog",
-    published_at: "2023-06-26 12:35:00"
-  },
-])
+const {data: posts} = await api('/posts')
 
 </script>
 
@@ -40,9 +15,11 @@ const posts = ref([
 
   <!--内容区-->
   <section class="divide-y divide-base-200 shadow-sm">
-    <div v-for="(post,key) in posts" :key="key" class="px-4 py-3 bg-base-100">
+    <div v-for="(post,key) in posts.data.items" :key="key" class="px-4 py-3 bg-base-100">
       <div class="w-full flex items-center justify-between">
-        <div class="object-cover w-12 h-12 rounded-full ring-1 ring-offset-2 ring-base-200"/>
+        <Avatar :url="post.feedable.creator.avatar" :name="post.feedable_type === 'App\\Models\\Post' ? post.feedable.creator.nickname : post.properties.author"
+                styles="object-cover w-12 h-12 rounded-full ring-1 ring-offset-2 ring-base-200"/>
+
         <div class="flex-1 max-w-2xl flex items-center justify-between">
           <div class="space-y-1.5">
             <span class="leading-5">{{ post.title }}</span>
