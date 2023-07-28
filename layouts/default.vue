@@ -49,7 +49,7 @@ function toggleColor() {
 </script>
 
 <template>
-  <div ref="root" class="relative h-screen bg-base-200 text-base-content/75 font-normal overflow-y-auto">
+  <div ref="root" class="relative h-screen bg-base-200 text-base-100 font-normal overflow-y-auto">
     <header class="bg-base-100 shadow-sm">
       <AppHeader :nodes="store.theme?.nodes" v-if="!loading"/>
     </header>
@@ -75,14 +75,9 @@ function toggleColor() {
     <!--  底部工具  -->
     <div class="fixed bottom-6 right-6 space-y-3">
       <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer">
-        <label :class="{'swap-active':$colorMode.value === 'light'}" class="swap swap-rotate" @click="toggleColor">
-          <button class="swap-on" data-set-theme="light">
-            <SunIcon class="swap-on w-4 h-4 stroke-base-content/75"/>
-          </button>
-          <button class="swap-off" data-set-theme="dark">
-            <MoonIcon class="swap-off w-4 h-4 stroke-base-content/75"/>
-          </button>
-        </label>
+        <button @click="toggleColor">
+          <SunIcon class="w-4 h-4 stroke-base-content/75"/>
+        </button>
       </div>
 
       <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer" v-show="y > height"

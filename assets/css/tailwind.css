@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-base-100 {
+    @apply bg-white dark:bg-slate-800
+}
+
+.bg-base-200{
+    @apply bg-slate-50 dark:bg-slate-900
+}
+
+.text-base-100{
+    @apply text-slate-500 dark:text-slate-400
+}
+
+.text-base-200{
+    @apply text-slate-600 dark:text-slate-50
+}
+
+.divide-base-100{
+    @apply divide-slate-100 dark:divide-slate-700
+}
