@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import AppHeader from "~/components/layout/AppHeader.vue";
 import AppAside from "~/components/layout/AppAside.vue";
+import {ArrowUpIcon, MoonIcon, SunIcon} from '@heroicons/vue/24/outline'
 
 const api = useApi()
 
 const store = useStore()
 
 // 取全局配置/主题配置
-const {data: theme} = api('/theme')
-store.theme = theme.value
+const {data} = api('/theme')
+store.theme = data.value
 
 // https://github.com/nuxt/nuxt/issues/12266
 const loading = ref(true);
@@ -26,20 +27,38 @@ watchEffect(async () => {
   store.page = page.value
 })
 
-function aside(position:string) {
+function aside(position: string) {
   return store.page.components.filter((item) => item.position === position);
 }
+
+const root = ref(null)
+const {y} = useScroll(root)
+const {width, height} = useWindowSize()
+
+function scrollTop(el: any): void {
+  //el.scrollTop = 0
+  el.scroll({top: 0, left: 0, behavior: 'smooth'})
+}
+
+const colorMode = useColorMode()
+
+function toggleColor() {
+  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
+  console.log(colorMode.preference)
+}
+
 </script>
 
 <template>
-  <div class="relative h-screen bg-base-200 text-base-content/75 font-normal overflow-y-auto">
+  <div ref="root" class="relative h-screen bg-base-200 text-base-content/75 font-normal overflow-y-auto">
     <header class="bg-base-100 shadow-sm">
       <AppHeader :nodes="store.theme?.nodes" v-if="!loading"/>
     </header>
 
     <!-- 主体 -->
-    <section class="flex justify-between max-w-6xl mx-auto my-6 px-8" :class="{'flex-row-reverse':store.page.aside.reverse }">
-      <aside class="fixed inset-y-1/4 -ml-24 w-24"  v-if="aside('left').length">
+    <section class="flex justify-between max-w-6xl mx-auto my-6 px-8"
+             :class="{'flex-row-reverse':store.page.aside.reverse }">
+      <aside class="fixed inset-y-1/4 -ml-24 w-24" v-if="aside('left').length">
         <AppAside :components="aside('left')"/>
       </aside>
 
@@ -53,6 +72,20 @@ function aside(position:string) {
         <AppAside :components="aside('right')"/>
       </aside>
     </section>
+
+    <!--  底部工具  -->
+    <div class="fixed bottom-6 right-6 space-y-3">
+      <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer">
+        <button @click="toggleColor">
+          <SunIcon class="w-4 h-4 stroke-base-content/75"/>
+        </button>
+      </div>
+
+      <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer" v-show="y > height"
+           @click="scrollTop(root)">
+        <ArrowUpIcon class="w-4 h-4 stroke-base-content/75"/>
+      </div>
+    </div>
   </div>
 </template>
 
