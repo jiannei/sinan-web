@@ -1,18 +1,17 @@
 <script setup lang="ts">
 const api = useApi()
-
-const {data: filters} = await api('/page/config')
-
 const {data: posts} = await api('/posts')
 
 // console.log(useNuxtApp().payload.data)
+
+const cfg = useConfig()// 布局组件取的页面配置数据
 
 </script>
 
 <template>
   <!--工具栏-->
   <section class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
-    <Toolbar :filters="filters"/>
+    <Toolbar :filters="cfg.filters"/>
   </section>
 
   <!--内容区-->

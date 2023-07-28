@@ -1,10 +1,25 @@
 <script setup lang="ts">
-// 取页面结构配置：左侧边栏、主体、右侧边栏
+import {useConfig} from "~/composables/useConfig";
 
+const api = useApi()
+
+// 取页面结构配置：左侧边栏、主体、右侧边栏
 const page = ref()
 
 // 取页面数据
 const data = reactive({})
+
+const cfg = useConfig()
+
+// 路由更新时取页面配置，共享 state
+watchEffect(async () => {
+  const route = useRoute().name
+
+  const {data} = await api(`/page/${route as string}/config`)
+
+  cfg.value = data.value
+})
+
 
 </script>
 
@@ -13,9 +28,14 @@ const data = reactive({})
     <header class="bg-base-100 shadow-sm">
       <nav class="flex items-center justify-between max-w-6xl px-8 py-2 mx-auto">
         <ul class="flex items-center space-x-1">
-          <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li><NuxtLink to="/about">About</NuxtLink></li>
+          <li>
+            <NuxtLink to="/">Home</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/about">About</NuxtLink>
+          </li>
         </ul>
+        <AppHeader/>
       </nav>
     </header>
 
@@ -25,7 +45,7 @@ const data = reactive({})
 
       <!--内容区-->
       <main class="flex-1 max-w-3xl space-y-3">
-        <slot />
+        <slot/>
       </main>
 
       <!--右侧边栏-->
