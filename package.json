@@ -13,6 +13,7 @@
     "@heroicons/vue": "^2.0.18",
     "@multiavatar/multiavatar": "^1.0.7",
     "@nuxt/devtools": "latest",
+    "@pinia/nuxt": "^0.4.11",
     "@types/node": "^20.4.5",
     "autoprefixer": "^10.4.14",
     "daisyui": "^3.5.0",

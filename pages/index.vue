@@ -4,14 +4,14 @@ const {data: posts} = await api('/posts')
 
 // console.log(useNuxtApp().payload.data)
 
-const cfg = useConfig()// 布局组件取的页面配置数据
+const store = useStore()
 
 </script>
 
 <template>
   <!--工具栏-->
   <section class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
-    <Toolbar :filters="cfg.filters"/>
+    <Toolbar :filters="store.config.filters"/>
   </section>
 
   <!--内容区-->

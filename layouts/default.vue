@@ -9,7 +9,7 @@ const page = ref()
 // 取页面数据
 const data = reactive({})
 
-const cfg = useConfig()
+const store = useStore()
 
 // 路由更新时取页面配置，共享 state
 watchEffect(async () => {
@@ -17,7 +17,7 @@ watchEffect(async () => {
 
   const {data} = await api(`/page/${route as string}/config`)
 
-  cfg.value = data.value
+  store.config = data.value
 })
 
 
