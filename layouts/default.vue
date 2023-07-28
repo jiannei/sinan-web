@@ -43,8 +43,7 @@ function scrollTop(el: any): void {
 const colorMode = useColorMode()
 
 function toggleColor() {
-  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
-  console.log(colorMode.preference)
+  colorMode.value = colorMode.value === 'light' ? 'dark' : 'light'
 }
 
 </script>
@@ -76,9 +75,14 @@ function toggleColor() {
     <!--  底部工具  -->
     <div class="fixed bottom-6 right-6 space-y-3">
       <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer">
-        <button @click="toggleColor">
-          <SunIcon class="w-4 h-4 stroke-base-content/75"/>
-        </button>
+        <label :class="{'swap-active':$colorMode.value === 'light'}" class="swap swap-rotate" @click="toggleColor">
+          <button class="swap-on" data-set-theme="light">
+            <SunIcon class="swap-on w-4 h-4 stroke-base-content/75"/>
+          </button>
+          <button class="swap-off" data-set-theme="dark">
+            <MoonIcon class="swap-off w-4 h-4 stroke-base-content/75"/>
+          </button>
+        </label>
       </div>
 
       <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer" v-show="y > height"
