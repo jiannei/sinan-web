@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AppHeader from "~/components/layout/AppHeader.vue";
+import AppAside from "~/components/layout/AppAside.vue";
+
 const api = useApi()
 
 const store = useStore()

@@ -8,6 +8,7 @@ import {
   GlobeAltIcon,
   BuildingLibraryIcon
 } from '@heroicons/vue/24/outline'
+import Community from "~/components/combobox/Community.vue";
 
 interface IAuth {
   nickname: string,
@@ -30,7 +31,7 @@ const emit = defineEmits<{
   <nav class="flex items-center justify-between max-w-6xl px-8 py-2 mx-auto">
     <!--左侧导航栏-->
     <div class="flex-1 max-w-3xl flex items-center">
-
+      <Community :options="nodes"/>
     </div>
 
     <!--右侧导航栏-->

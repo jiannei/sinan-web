@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Node from '@/components/aside/right/Node.vue';
-import Announcement from '@/components/aside/right/Announcement.vue';
+import Community from '~/components/layout/aside/right/Community.vue';
+import Notice from '~/components/layout/aside/right/Notice.vue';
 
 interface IComponents {
   title: string,
@@ -15,8 +15,8 @@ interface IProps {
 defineProps<IProps>()
 
 const definedComponents = {
-  Announcement,
-  Node,
+  Community,
+  Notice,
 }
 </script>
 
