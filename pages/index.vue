@@ -11,7 +11,7 @@ const store = useStore()
 <template>
   <!--工具栏-->
   <section class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
-    <Toolbar :filters="store.config.filters"/>
+    <Toolbar :filters="store.page.filters"/>
   </section>
 
   <!--内容区-->
