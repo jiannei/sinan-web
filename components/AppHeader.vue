@@ -33,37 +33,45 @@ const emit = defineEmits<{
 
     </div>
 
-    <!--右侧任务栏-->
+    <!--右侧导航栏-->
     <div class="w-72">
       <ul class="flex items-center justify-end space-x-1.5">
-        <li class="tooltip tooltip-bottom" data-tip="搜索">
-          <button typeof="button" class="p-1.5 rounded-full hover:bg-base-200 outline-none" @click="emit('search','')">
+        <li>
+          <button type="button" title="搜索" class="p-1.5 rounded-full hover:bg-base-200 outline-none" @click="emit('search','')">
             <MagnifyingGlassIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
           </button>
         </li>
         <li>
-          <ul class="flex items-center justify-end space-x-1.5">
-            <li class="tooltip tooltip-bottom" data-tip="趋势">
-              <ArrowTrendingUpIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-            </li>
-            <li class="tooltip tooltip-bottom" data-tip="探索">
-              <GlobeAltIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-            </li>
-            <li class="tooltip tooltip-bottom" data-tip="资源库">
-              <BuildingLibraryIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-            </li>
-          </ul>
+         <button type="button" title="趋势" class="p-1.5 rounded-full hover:bg-base-200 outline-none">
+           <ArrowTrendingUpIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+         </button>
+        </li>
+        <li>
+          <button type="button" title="探索" class="p-1.5 rounded-full hover:bg-base-200 outline-none">
+            <GlobeAltIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+          </button>
+        </li>
+        <li>
+          <button type="button" title="资源库" class="p-1.5 rounded-full hover:bg-base-200 outline-none">
+            <BuildingLibraryIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+          </button>
         </li>
         <li v-if="auth">
           <ul class="flex items-center justify-end space-x-1.5">
-            <li class="tooltip tooltip-bottom" data-tip="创作">
-              <PencilSquareIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+            <li>
+              <button type="button" title="创作" class="p-1.5 rounded-full hover:bg-base-200 outline-none">
+                <ChatBubbleLeftRightIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+              </button>
             </li>
-            <li class="tooltip tooltip-bottom" data-tip="讨论">
-              <ChatBubbleLeftRightIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+            <li>
+              <button type="button" title="讨论" class="p-1.5 rounded-full hover:bg-base-200 outline-none">
+                <PencilSquareIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+              </button>
             </li>
-            <li class="tooltip tooltip-bottom" data-tip="消息">
-              <BellIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+            <li>
+              <button type="button" title="消息" class="p-1.5 rounded-full hover:bg-base-200 outline-none">
+                <BellIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
+              </button>
             </li>
             <!--          <li>-->
             <!--            <div class="relative cursor-pointer">-->

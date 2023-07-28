@@ -21,10 +21,7 @@ const definedComponents = {
 </script>
 
 <template>
-  <component v-for="item in components"
-             :is="useComponent(definedComponents,item.component)"
-             :actions="item.actions"
-             :data="item.data" :title="item.title"/>
+  <component v-for="item in components" :is="useComponent(definedComponents,item.component)" :actions="item.actions" :data="item.data" :title="item.title"/>
 </template>
 
 <style scoped>

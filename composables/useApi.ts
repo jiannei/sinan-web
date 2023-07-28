@@ -1,6 +1,6 @@
 // https://github.com/nuxt/nuxt/discussions/15930
 
-type IResponse = {
+interface IResponse {
   status: string,
   code: number,
   data: any,// 数组、对象
