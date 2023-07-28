@@ -1,10 +1,40 @@
 // https://github.com/nuxt/nuxt/discussions/15930
+
+type IResponse = {
+  status: string,
+  code: number,
+  data: any,// 数组、对象
+  error: any
+}
+
 export default function () {
-  let {public: {apiBase}} = useRuntimeConfig()
+  const {public: {apiBase}} = useRuntimeConfig()
 
-  apiBase = apiBase.endsWith('/') ? apiBase.slice(0, -1) : apiBase
+  return (url: string, opts?: any) => {
+    return useFetch(url, {
+      baseURL: apiBase,
+      transform: (response) => (response as IResponse).data,
+      onRequest({request, options}) {
+        // Set the request headers
 
-  return (url: string, opts?: object) => {
-    return useAsyncData(url, () => $fetch(`${apiBase}${url}`, opts))
+      },
+      onRequestError({request, options, error}) {
+        // Handle the request errors
+      },
+      onResponse({request, response, options}) {
+        // Process the response data
+        //localStorage.setItem('token', response._data.token)
+      },
+      onResponseError({request, response, options}) {
+        // Handle the response errors
+      },
+    })
+
+
+    // return useAsyncData(url, () => $fetch(`${apiBase}${url}`, opts), {
+    //   transform: (response) => {
+    //     return (response as IResponse).data
+    //   }
+    // })
   }
 }

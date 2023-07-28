@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import {FunnelIcon} from '@heroicons/vue/24/outline'
-
-defineProps({
-  filters: {
-    type: Array,
-    default: []
-  },
-})
+interface IProps {
+  filters: Array<any>
+}
+defineProps<IProps>()
 </script>
 
 <template>

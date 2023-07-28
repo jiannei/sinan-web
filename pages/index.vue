@@ -5,17 +5,19 @@ const {data: filters} = await api('/page/config')
 
 const {data: posts} = await api('/posts')
 
+// console.log(useNuxtApp().payload.data)
+
 </script>
 
 <template>
   <!--工具栏-->
   <section class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
-    <Toolbar :filters="filters.data"/>
+    <Toolbar :filters="filters"/>
   </section>
 
   <!--内容区-->
   <section class="divide-y divide-base-200 shadow-sm">
-    <div v-for="(post,key) in posts.data.items" :key="key" class="px-4 py-3 bg-base-100">
+    <div v-for="(post,key) in posts.items" :key="key" class="px-4 py-3 bg-base-100">
       <div class="w-full flex items-center justify-between">
         <Avatar :url="post.feedable.creator.avatar" :name="post.feedable_type === 'App\\Models\\Post' ? post.feedable.creator.nickname : post.properties.author"
                 styles="object-cover w-12 h-12 rounded-full ring-1 ring-offset-2 ring-base-200"/>
