@@ -8,8 +8,6 @@ import {
   ComboboxOptions,
   TransitionRoot,
 } from '@headlessui/vue'
-import {ChevronDownIcon} from '@heroicons/vue/24/solid'
-import {KeyboardIcon} from 'vue-tabler-icons';
 
 const props = defineProps({
   options: {
@@ -49,7 +47,7 @@ defineExpose({getSelected});
   <Combobox v-model="selected" v-slot="{open}">
     <div class="relative">
       <div class="w-full flex items-center space-x-1 cursor-default text-left sm:text-sm">
-        <KeyboardIcon v-if="selected.id === 1" class="w-8 h-8 stroke-base-content/75"/>
+        <button v-if="selected.id === 1" class="i-tabler-keyboard text-2xl"/>
         <img v-else :alt="selected.name" :src="selected.properties.icon" class="w-8 h-8">
         <div class="flex-1 flex items-center">
           <ComboboxButton>
@@ -60,7 +58,7 @@ defineExpose({getSelected});
                 @change="query = $event.target.value"
             />
           </ComboboxButton>
-          <ChevronDownIcon aria-hidden="true" class="h-5 w-5 fill-base-300"/>
+          <button class="i-tabler-chevron-down text-base text-light"></button>
         </div>
       </div>
 
@@ -91,7 +89,7 @@ defineExpose({getSelected});
                 :class="{'bg-normal': active,'text-base-content': !active,}"
                 class="relative cursor-pointer select-none p-2 flex items-center space-x-2"
             >
-              <KeyboardIcon v-if="option.id === 1" class="w-5 h-5 stroke-base-content/75"></KeyboardIcon>
+              <button v-if="option.id === 1" class="i-tabler-keyboard text-xl"/>
               <img v-else :alt="option.name" :src="option.properties.icon" class="w-5 h-5">
               <span :class="{ 'font-medium': selected, 'font-normal': !selected }"
                     class="block">{{ option.properties.label }}</span>

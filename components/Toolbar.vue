@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {FunnelIcon} from '@heroicons/vue/24/outline'
 interface IProps {
   filters: Array<any>
 }
@@ -17,9 +16,7 @@ defineProps<IProps>()
       </li>
     </ul>
     <div class="space-x-2">
-      <button title="过滤">
-        <FunnelIcon class="h-4 w-4 stroke-gray-500 hover:stroke-cyan-500"/>
-      </button>
+      <button title="过滤" class="i-tabler-filter hover:text-cyan-500"/>
     </div>
   </div>
 </template>

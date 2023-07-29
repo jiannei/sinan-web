@@ -1,13 +1,4 @@
 <script setup lang="ts">
-import {
-  BellIcon,
-  MagnifyingGlassIcon,
-  ChatBubbleLeftRightIcon,
-  PencilSquareIcon,
-  ArrowTrendingUpIcon,
-  GlobeAltIcon,
-  BuildingLibraryIcon
-} from '@heroicons/vue/24/outline'
 import Community from "~/components/combobox/Community.vue";
 
 interface IAuth {
@@ -37,42 +28,28 @@ const emit = defineEmits<{
     <!--右侧导航栏-->
     <div class="w-72">
       <ul class="flex items-center justify-end space-x-1.5">
-        <li>
-          <button type="button" title="搜索" class="p-1.5 rounded-full hover:bg-normal outline-none" @click="emit('search','')">
-            <MagnifyingGlassIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-          </button>
+        <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+          <button title="搜索" class="i-tabler-search" @click="emit('search','')"></button>
         </li>
-        <li>
-         <button type="button" title="趋势" class="p-1.5 rounded-full hover:bg-normal outline-none">
-           <ArrowTrendingUpIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-         </button>
+        <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+         <button title="趋势" class="i-tabler-trending-up"></button>
         </li>
-        <li>
-          <button type="button" title="探索" class="p-1.5 rounded-full hover:bg-normal outline-none">
-            <GlobeAltIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-          </button>
+        <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+          <button title="探索" class="i-tabler-world"></button>
         </li>
-        <li>
-          <button type="button" title="资源库" class="p-1.5 rounded-full hover:bg-normal outline-none">
-            <BuildingLibraryIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-          </button>
+        <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+          <button title="探索" class="i-tabler-books"></button>
         </li>
         <li v-if="auth">
           <ul class="flex items-center justify-end space-x-1.5">
-            <li>
-              <button type="button" title="创作" class="p-1.5 rounded-full hover:bg-normal outline-none">
-                <ChatBubbleLeftRightIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-              </button>
+            <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+              <button title="讨论" class="i-tabler-message"></button>
             </li>
-            <li>
-              <button type="button" title="讨论" class="p-1.5 rounded-full hover:bg-normal outline-none">
-                <PencilSquareIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-              </button>
+            <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+              <button title="创作" class="i-tabler-edit"></button>
             </li>
-            <li>
-              <button type="button" title="消息" class="p-1.5 rounded-full hover:bg-normal outline-none">
-                <BellIcon class="w-4 h-4 stroke-base-content/75 hover:stroke-cyan-500"/>
-              </button>
+            <li class="p-1.5 rounded-full hover:bg-normal hover:text-cyan-500">
+              <button  title="消息" class="i-tabler-bell"></button>
             </li>
             <!--          <li>-->
             <!--            <div class="relative cursor-pointer">-->

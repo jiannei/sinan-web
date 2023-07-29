@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AppHeader from "~/components/layout/AppHeader.vue";
 import AppAside from "~/components/layout/AppAside.vue";
-import {ArrowUpIcon, MoonIcon, SunIcon} from '@heroicons/vue/24/outline'
 
 const api = useApi()
 
@@ -75,14 +74,12 @@ function toggleColor() {
     <!--  底部工具  -->
     <div class="fixed bottom-6 right-6 space-y-3">
       <div class="block p-2.5 bg-light shadow rounded-md cursor-pointer">
-        <button @click="toggleColor">
-          <SunIcon class="w-4 h-4 stroke-base-content/75"/>
-        </button>
+        <button class="i-tabler-sun dark:i-tabler-moon" @click="toggleColor"/>
       </div>
 
       <div class="block p-2.5 bg-light shadow rounded-md cursor-pointer" v-show="y > height"
            @click="scrollTop(root)">
-        <ArrowUpIcon class="w-4 h-4 stroke-base-content/75"/>
+        <button class="i-tabler-arrow-up"></button>
       </div>
     </div>
   </div>

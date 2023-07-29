@@ -20,7 +20,7 @@ export default defineConfig({
   },
   presets: [
     presetUno(),
-    presetAttributify(),
+    // presetAttributify(),
     presetIcons(),
     presetTypography(),
     presetWebFonts({

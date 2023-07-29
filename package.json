@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.15",
-    "@heroicons/vue": "^2.0.18",
+    "@iconify-json/tabler": "^1.1.85",
     "@multiavatar/multiavatar": "^1.0.7",
     "@nuxt/devtools": "latest",
     "@nuxtjs/color-mode": "^3.3.0",
@@ -21,7 +21,6 @@
     "@unocss/nuxt": "^0.54.0",
     "@vueuse/nuxt": "^10.2.1",
     "dayjs": "^1.11.9",
-    "nuxt": "^3.6.5",
-    "vue-tabler-icons": "^2.21.0"
+    "nuxt": "^3.6.5"
   }
 }
