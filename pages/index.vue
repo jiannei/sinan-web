@@ -10,12 +10,12 @@ const store = useStore()
 
 <template>
   <!--工具栏-->
-  <section class="w-full px-4 py-3 bg-base-100 rounded shadow-sm">
+  <section class="w-full px-4 py-3 bg-light rounded shadow-sm">
     <Toolbar :filters="store.page.filters"/>
   </section>
 
   <!--内容区-->
-  <section class="bg-base-100 divide-y divide-base-100 shadow-sm">
+  <section class="bg-light divide-y divide-light shadow-sm">
     <div v-for="(post,key) in posts.items" :key="key" class="px-4 py-3">
       <div class="w-full flex items-center justify-between">
         <Avatar :url="post.feedable.creator.avatar" :name="post.feedable_type === 'App\\Models\\Post' ? post.feedable.creator.nickname : post.properties.author"
@@ -46,7 +46,7 @@ const store = useStore()
             </ul>
           </div>
 
-          <div class="bg-base-200 px-1 py-0.5 rounded-md" v-show="post.properties.count.comment">
+          <div class="bg-normal px-1 py-0.5 rounded-md" v-show="post.properties.count.comment">
             <!--TODO feed score-->
             <span class="text-xs text-base-content/50 font-medium">{{ post.properties.count.comment }}</span>
           </div>

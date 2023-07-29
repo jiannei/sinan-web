@@ -55,7 +55,7 @@ defineExpose({getSelected});
           <ComboboxButton>
             <ComboboxInput
                 spellcheck="false"
-                class="flex-1 px-1.5 bg-base-100 text-sm leading-5 font-medium focus:ring-0 border-none cursor-pointer"
+                class="flex-1 px-1.5 bg-light text-sm leading-5 font-medium ring-0 border-none outline-none cursor-pointer"
                 :displayValue="(option) => option.properties.label"
                 @change="query = $event.target.value"
             />
@@ -71,7 +71,7 @@ defineExpose({getSelected});
           @after-leave="query = ''"
       >
         <ComboboxOptions
-            class="absolute z-10 mt-2.5 max-h-60 w-full overflow-auto rounded-md bg-base-100 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            class="absolute z-10 mt-2.5 max-h-60 w-full overflow-auto rounded-md bg-light py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
         >
           <div
               v-if="filteredOptions.length === 0 && query !== ''"
@@ -88,7 +88,7 @@ defineExpose({getSelected});
               v-slot="{ selected, active }"
           >
             <li
-                :class="{'bg-base-200': active,'text-base-content': !active,}"
+                :class="{'bg-normal': active,'text-base-content': !active,}"
                 class="relative cursor-pointer select-none p-2 flex items-center space-x-2"
             >
               <KeyboardIcon v-if="option.id === 1" class="w-5 h-5 stroke-base-content/75"></KeyboardIcon>

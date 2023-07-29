@@ -6,11 +6,11 @@ import {
 
 export default defineConfig({
   shortcuts: {
-    'bg-base-100':'bg-white dark:bg-slate-800 ring-1 ring-slate-900/5',
-    'bg-base-200':'bg-slate-50 dark:bg-slate-900',
-    'text-base-100':'text-slate-500 dark:text-slate-400',
-    'text-base-200':'text-slate-600 dark:text-slate-50',
-    'divide-base-100':'divide-slate-100 dark:divide-slate-700',
+    'bg-light':'bg-white dark:bg-slate-800 ring-1 ring-slate-900/5',
+    'bg-normal':'bg-slate-50 dark:bg-slate-900',
+    'text-light':'text-slate-500 dark:text-slate-400',
+    'text-normal':'text-slate-600 dark:text-slate-50',
+    'divide-light':'divide-slate-100 dark:divide-slate-700',
     'badge':'inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset',
   },
   theme: {

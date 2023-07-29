@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full bg-base-100 rounded border-l-2 border-cyan-500 shadow-sm">
+  <div class="w-full bg-light rounded border-l-2 border-cyan-500 shadow-sm">
     <div class="px-4 py-3">
       <span class="inline-block text-sm py-0.5">{{ data }}</span>
     </div>

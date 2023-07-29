@@ -8,7 +8,7 @@ defineProps<IProps>()
 </script>
 
 <template>
-  <div class="w-full bg-base-100 rounded shadow-sm">
+  <div class="w-full bg-light rounded shadow-sm">
     <div class="px-4 py-3">
       <span class="font-bold">{{ title }}</span>
     </div>

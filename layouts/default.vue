@@ -49,8 +49,8 @@ function toggleColor() {
 </script>
 
 <template>
-  <div ref="root" class="relative h-screen bg-base-200 text-base-100 font-normal overflow-y-auto">
-    <header class="bg-base-100 shadow-sm">
+  <div ref="root" class="relative h-screen bg-normal text-light font-normal overflow-y-auto">
+    <header class="bg-light shadow-sm">
       <AppHeader :nodes="store.theme?.nodes" v-if="!loading"/>
     </header>
 
@@ -74,13 +74,13 @@ function toggleColor() {
 
     <!--  底部工具  -->
     <div class="fixed bottom-6 right-6 space-y-3">
-      <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer">
+      <div class="block p-2.5 bg-light shadow rounded-md cursor-pointer">
         <button @click="toggleColor">
           <SunIcon class="w-4 h-4 stroke-base-content/75"/>
         </button>
       </div>
 
-      <div class="block p-2.5 bg-base-100 shadow rounded-md cursor-pointer" v-show="y > height"
+      <div class="block p-2.5 bg-light shadow rounded-md cursor-pointer" v-show="y > height"
            @click="scrollTop(root)">
         <ArrowUpIcon class="w-4 h-4 stroke-base-content/75"/>
       </div>
