@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppHeader from "~/components/layout/AppHeader.vue";
 import AppAside from "~/components/layout/AppAside.vue";
+import {useToggle} from '@vueuse/core'
 
 const api = useApi()
 
@@ -39,11 +40,10 @@ function scrollTop(el: any): void {
   el.scroll({top: 0, left: 0, behavior: 'smooth'})
 }
 
-const colorMode = useColorMode()
+const [theme, toggleColor] = useToggle()
 
-function toggleColor() {
-  colorMode.value = colorMode.value === 'light' ? 'dark' : 'light'
-}
+// preference 修改后优先级会比系统高，可以删除 nuxt-color-mode 恢复跟随系统自动切换
+watch(theme, (current) => useColorMode().preference = (current ? 'dark' : 'light'))
 
 </script>
 
@@ -74,7 +74,7 @@ function toggleColor() {
     <!--  底部工具  -->
     <div class="fixed bottom-6 right-6 space-y-3">
       <div class="block p-2.5 bg-light shadow rounded-md cursor-pointer">
-        <button class="i-tabler-sun dark:i-tabler-moon" @click="toggleColor"/>
+        <button class="i-tabler-sun dark:i-tabler-moon" @click="toggleColor()"/>
       </div>
 
       <div class="block p-2.5 bg-light shadow rounded-md cursor-pointer" v-show="y > height"
