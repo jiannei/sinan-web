@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="font-sans leading-none antialiased">
     <NuxtLayout>
@@ -5,5 +8,7 @@
     </NuxtLayout>
   </div>
 </template>
-<script setup lang="ts">
-</script>
+
+<style>
+@import '@unocss/reset/tailwind.css';
+</style>

@@ -15,7 +15,7 @@ const store = useStore()
   </section>
 
   <!--内容区-->
-  <section class="bg-base-100 shadow-sm divide-y divide-base-100">
+  <section class="bg-base-100 divide-y divide-base-100 shadow-sm">
     <div v-for="(post,key) in posts.items" :key="key" class="px-4 py-3">
       <div class="w-full flex items-center justify-between">
         <Avatar :url="post.feedable.creator.avatar" :name="post.feedable_type === 'App\\Models\\Post' ? post.feedable.creator.nickname : post.properties.author"
