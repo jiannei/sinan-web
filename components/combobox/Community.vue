@@ -1,5 +1,4 @@
-<script setup>
-import {computed, ref, watch} from 'vue'
+<script setup lang="ts">
 import {
   Combobox,
   ComboboxButton,
@@ -9,11 +8,12 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 
-const props = defineProps({
-  options: {
-    type: Array,
-    default: []
-  }
+interface IProps {
+  options: Array<any>
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+  options: () => []
 })
 
 const {options} = props

@@ -16,13 +16,15 @@ defineProps<IProps>()
 const emit = defineEmits<{
   search: [command: string]
 }>()
+
+const loading = inject('loading')
 </script>
 
 <template>
   <nav class="flex items-center justify-between max-w-6xl px-8 py-2 mx-auto">
     <!--左侧导航栏-->
     <div class="flex-1 max-w-3xl flex items-center">
-      <Community :options="nodes"/>
+      <Community :options="nodes" v-if="!loading"/>
     </div>
 
     <!--右侧导航栏-->

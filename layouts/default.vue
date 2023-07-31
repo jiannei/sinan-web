@@ -18,6 +18,8 @@ nuxtApp.hook("page:finish", () => {
   loading.value = false;
 });
 
+provide('loading', loading)
+
 // 取页面配置：路由更新时取页面配置，共享 state
 watchEffect(async () => {
   const route = useRoute().name
@@ -50,7 +52,7 @@ watch(theme, (current) => useColorMode().preference = (current ? 'dark' : 'light
 <template>
   <div ref="root" class="relative h-screen bg-normal text-light font-normal overflow-y-auto">
     <header class="bg-light shadow-sm">
-      <AppHeader :nodes="store.theme?.nodes" v-if="!loading"/>
+      <AppHeader :nodes="store.theme?.nodes"/>
     </header>
 
     <!-- 主体 -->
