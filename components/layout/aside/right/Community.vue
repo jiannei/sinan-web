@@ -18,12 +18,9 @@ defineProps<IProps>()
       </p>
       <ul class="flex flex-col space-y-1">
         <li v-for="link in data.links">
-          <Link :href="link.url"
-                as="button" type="button"
-                class="block w-full py-1"
-                :class="{'bg-cyan-500 text-white font-bold rounded-full hover:bg-cyan-400' :link.type === 'primary','border border-cyan-500 text-cyan-500 font-bold rounded-full hover:bg-cyan-50':link.type === 'outline'}">
-            {{ link.label }}
-          </Link>
+          <button class="block w-full py-1" :class="{'bg-cyan-500 text-white font-bold rounded-full hover:bg-opacity-75' :link.type === 'primary','border border-cyan-500 text-cyan-500 font-bold rounded-full hover:bg-normal':link.type === 'outline'}">
+            <a :href="link.url">{{ link.label }}</a>
+          </button>
         </li>
       </ul>
     </div>
